@@ -12,6 +12,10 @@ public class Player : MonoBehaviour
     void Start()
     {
         _controller = GetComponent<CharacterController>();
+        //cursor invisible
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
         
         
     
@@ -20,6 +24,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if escape key pressed unhide the cursor
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Cursor.visible = true;
+            Cursor.lockState =CursorLockMode.None;
+        }
         CalculateMovement();
     }
 
